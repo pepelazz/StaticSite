@@ -1,0 +1,22 @@
+.nav
+  @include horizontal-list(0)
+
+.top-nav
+  position: fixed
+  top: 0
+  left: 0
+  background: #000000
+  color: #ffffff
+  height: $top-height
+  width: 100%
+  margin: 0
+  padding-left: $wide-border
+  li
+    margin-right: 1rem
+    line-height: $top-height
+  a
+    color: white
+    text-decoration: none
+    &:hover
+      color: #cccccc
+
