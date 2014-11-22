@@ -1,7 +1,8 @@
-
 libs/
 .idea/
-node-modules/
+.sass-cache/
+node_modules/
+
 _StaticSite.iml
 
 
