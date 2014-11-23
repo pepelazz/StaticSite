@@ -14,7 +14,6 @@ tplCache  = require('gulp-angular-templatecache')
 webserver  = require('gulp-webserver')
 htmlreplace  = require('gulp-html-replace')
 rimraf  = require('gulp-rimraf')
-fileinclude = require('gulp-file-include')
 gulpsync  = require('gulp-sync')(gulp)
 
 paths =
@@ -39,10 +38,6 @@ gulp.task 'index', ->
     './app/html/index.jade'
     './app/html/index.html'
   ])
-  .pipe(fileinclude(
-      prefix: '@@',
-      basepath: '@file'
-    ))
   .pipe(gulpif(/[.]jade$/, jade(pretty: gutil.env.type == 'dev').on('error', gutil.log)))
   .pipe(htmlreplace(js:
     if gutil.env.type == 'dev' then ['app.js']
@@ -76,6 +71,7 @@ gulp.task 'testsJS', ->
 gulp.task 'templates', ->
   gulp.src([
     '!./app/html/index.jade'
+    '!./app/html/includes'
     './app/html/**/*.html'
     './app/html/**/*.jade'
   ])
